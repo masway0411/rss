@@ -14,17 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
             rssFeedElement.innerHTML = "";
             items.forEach((item) => {
-                const title = item.querySelector("title").textContent;
-                const link = item.querySelector("link").textContent;
+                const titleElement = item.querySelector("ht\\:news_item_title, news_item_title");
+                const imageElement = item.querySelector("ht\\:news_item_picture, news_item_picture");
+
+                const title = titleElement ? titleElement.textContent : "No Title";
+                const imageUrl = imageElement ? imageElement.textContent : "";
 
                 const listItem = document.createElement("li");
-                listItem.innerHTML = `<a href="${link}" target="_blank">${title}</a>`;
-                rssFeedElement.appendChild(listItem);
-            });
-        } catch (error) {
-            rssFeedElement.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
-        }
-    }
-
-    fetchRSS();
-});
+                list
